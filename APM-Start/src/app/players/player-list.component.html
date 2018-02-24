@@ -1,0 +1,50 @@
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        {{pageTitle}}
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-2">Filter</div>
+            <div class="col-md-4">
+            <input type="text"/>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <h3>Filtered by:</h3>
+        </div>
+    </div>
+    <div class='table-responsive'>
+        <table class='table'
+            *ngIf='players && players.length'>
+                
+            <thead>
+                <tr>
+                    <th>
+                        <button class='btn btn-primary'>
+                           Show image
+                        </button>
+                    </th>
+                    <th>Player</th>
+                    <th>Number</th>
+                    <th>Position</th>
+                    <th>Value</th>
+                    <th>5 Star Rating</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor='let player of players'>
+                    <td></td>
+                    <td>{{ player.playerName }}</td>
+                    <td>{{ player.playerNo}}</td>
+                    <td>{{ player.playerPos }}</td>
+                    <td>{{ player.playerVal }}</td>
+                    <td>{{ player.playerRating }}</td>
+
+                </tr>
+
+            </tbody>  
+    </table>
+</div>
+</div>
+</div>
