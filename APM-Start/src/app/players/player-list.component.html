@@ -4,14 +4,15 @@
     </div>
     <div class="panel-body">
         <div class="row">
-            <div class="col-md-2">Filter</div>
+            <div class="col-md-2">Filter by:</div>
             <div class="col-md-4">
-            <input type="text"/>
+            <input type="text" 
+            [(ngModel)]='listFilter'/>
         </div>
     </div>
     <div class="row">
         <div class="col-md-6">
-            <h3>Filtered by:</h3>
+            <h3>Filtered by: {{ listFilter }} </h3>
         </div>
     </div>
     <div class='table-responsive'>
@@ -21,8 +22,9 @@
             <thead>
                 <tr>
                     <th>
-                        <button class='btn btn-primary'>
-                           Show image
+                        <button class='btn btn-primary'
+                        (click)='toggleImage()'>
+                           {{ showImage ? 'hide' : 'show' }} Image
                         </button>
                     </th>
                     <th>Player</th>
@@ -34,11 +36,17 @@
             </thead>
             <tbody>
                 <tr *ngFor='let player of players'>
-                    <td></td>
-                    <td>{{ player.playerName }}</td>
-                    <td>{{ player.playerNo}}</td>
-                    <td>{{ player.playerPos }}</td>
-                    <td>{{ player.playerVal }}</td>
+                    <td>
+                        <img *ngIf='showImage'
+                        [src]='player.imageUrl'
+                        [title]='player.playerName'
+                        [style.width.px]='imageWidth'
+                        [style.margin.px]='imageMargin'>
+                    </td>
+                    <td>{{ player.playerName | convertToSpaces: 'e' }}</td>
+                    <td>{{ player.playerNo}} </td>
+                    <td>{{ player.playerPos | lowercase  }}</td>
+                    <td>{{ player.playerVal | currency:'INR':true:'1.2-2' }}</td>
                     <td>{{ player.playerRating }}</td>
 
                 </tr>
