@@ -3,9 +3,10 @@ export interface IPlayer {
     playerNo: number;
     playerPos: string;
     playerVal: number;
-    contractDate: string;
+    
     playerRating: number;
-  //  imageUrl: string;
+    contractDate: string;
+ //  imageUrl: string;
 
 }
  

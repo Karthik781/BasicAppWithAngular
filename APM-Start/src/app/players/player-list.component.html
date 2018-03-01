@@ -35,7 +35,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor='let player of players'>
+                <tr *ngFor='let player of filteredplayers'>
                     <td>
                         <img *ngIf='showImage'
                         [src]='player.imageUrl'
@@ -43,9 +43,9 @@
                         [style.width.px]='imageWidth'
                         [style.margin.px]='imageMargin'>
                     </td>
-                    <td>{{ player.playerName | convertToSpaces: 'e' }}</td>
+                    <td>{{ player.playerName  }}</td>
                     <td>{{ player.playerNo}} </td>
-                    <td>{{ player.playerPos | lowercase  }}</td>
+                    <td>{{ player.playerPos | lowercase | convertToSpaces: 'e'}}</td>
                     <td>{{ player.playerVal | currency:'INR':true:'1.2-2' }}</td>
                     <td>{{ player.playerRating }}</td>
 
