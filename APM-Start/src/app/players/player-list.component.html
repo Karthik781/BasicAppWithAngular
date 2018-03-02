@@ -32,10 +32,11 @@
                     <th>Position</th>
                     <th>Value</th>
                     <th>5 Star Rating</th>
+                    <th>Contract Date</th>
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor='let player of filteredplayers'>
+                <tr *ngFor='let player of filteredPlayers'>
                     <td>
                         <img *ngIf='showImage'
                         [src]='player.imageUrl'
@@ -48,6 +49,7 @@
                     <td>{{ player.playerPos | lowercase | convertToSpaces: 'e'}}</td>
                     <td>{{ player.playerVal | currency:'INR':true:'1.2-2' }}</td>
                     <td>{{ player.playerRating }}</td>
+                    <td>{{ player.contractDate }}</td>
 
                 </tr>
 

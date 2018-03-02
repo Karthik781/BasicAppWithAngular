@@ -13,6 +13,9 @@ export class PlayerListComponent implements OnInit {
     imageMargin: number=2;
     showImage: boolean=false;
 
+    filteredPlayers: IPlayer[];
+
+
     _listFilter:string;
     get listFilter():string{
         return  this._listFilter;
@@ -21,7 +24,6 @@ export class PlayerListComponent implements OnInit {
         this._listFilter = value;
         this.filteredPlayers=this.listFilter ? this.performFilter(this.listFilter): this.players;
     }
-    filteredPlayers: IPlayer[];
     players: IPlayer[] = [
         {
             "playerName": "Leo Messi",
@@ -30,7 +32,7 @@ export class PlayerListComponent implements OnInit {
             "playerVal":5000000,
             "playerRating":5,
             "contractDate":"june 2022",
-           //"imageUrl":"https://png.pngtree.com/element_origin_min_pic/16/10/17/195804bbfb5a069.jpg"   
+           // "imageUrl": "https://png.pngtree.com/element_origin_min_pic/16/10/17/195804bbfb5a069.jpg"
 
         },
         {
@@ -40,7 +42,7 @@ export class PlayerListComponent implements OnInit {
             "playerVal":3000000,
             "playerRating":4.7,
             "contractDate":"june 2021",
-          // "imageUrl": "https://jjnihb.jpg "
+          //  "imageUrl":"https://png.pngtree.com/element_origin_min_pic/16/11/12/378ee6327e18ea1c8d066efcf9301522.jpg "
         }
 
 
@@ -51,9 +53,9 @@ export class PlayerListComponent implements OnInit {
             this.listFilter='l';
     }
     performFilter(filterBy: string): IPlayer[]{
-     filterBy = filterBy;
-        return this.players.filter((player:any)=>
-            player.playerName.indexOf(filterBy)!==-1);
+     filterBy = filterBy.toLocaleLowerCase();
+        return this.players.filter((player:IPlayer)=>
+            player.playerName.toLocaleLowerCase().indexOf(filterBy)!==-1);
     }
 
     toggleImage():void {

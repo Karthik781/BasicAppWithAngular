@@ -1,12 +1,11 @@
 export interface IPlayer {
-  playerName: string;
+    playerName: string;
     playerNo: number;
     playerPos: string;
     playerVal: number;
-    
     playerRating: number;
     contractDate: string;
- //  imageUrl: string;
+   // imageUrl: string;
 
 }
  
