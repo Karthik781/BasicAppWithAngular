@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { IPlayer } from './player';
+import { createUrlResolverWithoutPackagePrefix } from '@angular/compiler';
 
 @Component({
     selector: 'bm-players', 
@@ -42,7 +43,7 @@ export class PlayerListComponent implements OnInit {
             "playerVal":3000000,
             "playerRating":4.7,
             "contractDate":"june 2021",
-          //  "imageUrl":"https://png.pngtree.com/element_origin_min_pic/16/11/12/378ee6327e18ea1c8d066efcf9301522.jpg "
+          // "imageUrl":"https://png.pngtree.com/element_origin_min_pic/16/11/12/378ee6327e18ea1c8d066efcf9301522.jpg "
         }
 
 
