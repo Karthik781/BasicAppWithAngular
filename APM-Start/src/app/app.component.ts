@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { PlayerService } from './players/player.service';
 
 @Component({
   selector: 'bm-root', 
@@ -6,7 +7,8 @@ import { Component } from '@angular/core';
    <div><h1>{{pageTitle}}</h1>
       <bm-players> </bm-players>
    </div>
-    `
+    `,
+    providers:[ PlayerService ]
 })
 
 export class AppComponent{

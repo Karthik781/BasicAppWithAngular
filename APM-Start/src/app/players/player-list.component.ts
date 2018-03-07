@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IPlayer } from './player';
 import { createUrlResolverWithoutPackagePrefix } from '@angular/compiler';
+import { PlayerService } from './player.service';
 
 @Component({
     selector: 'bm-players', 
@@ -13,7 +14,7 @@ export class PlayerListComponent implements OnInit {
     imageWidth:number=50;
     imageMargin: number=2;
     showImage: boolean=false;
-
+ 
     filteredPlayers: IPlayer[];
 
 
@@ -25,33 +26,11 @@ export class PlayerListComponent implements OnInit {
         this._listFilter = value;
         this.filteredPlayers=this.listFilter ? this.performFilter(this.listFilter): this.players;
     }
-    players: IPlayer[] = [
-        {
-            "playerName": "Leo Messi",
-            "playerNo":10,
-            "playerPos":"Right wing",
-            "playerVal":5000000,
-            "playerRating":5,
-            "contractDate":"june 2022",
-           // "imageUrl": "https://png.pngtree.com/element_origin_min_pic/16/10/17/195804bbfb5a069.jpg"
+    players: IPlayer[] = [];
+       
 
-        },
-        {
-            "playerName": "Luis Suarez",
-            "playerNo":9,
-            "playerPos":"Striker",
-            "playerVal":3000000,
-            "playerRating":4.7,
-            "contractDate":"june 2021",
-          // "imageUrl":"https://png.pngtree.com/element_origin_min_pic/16/11/12/378ee6327e18ea1c8d066efcf9301522.jpg "
-        }
-
-
-    ];
-
-     constructor(){
-         this.filteredPlayers=this.players;
-            this.listFilter='l';
+     constructor(private _playerService: PlayerService){
+           // this.listFilter='l';
     }
     performFilter(filterBy: string): IPlayer[]{
      filterBy = filterBy.toLocaleLowerCase();
@@ -63,7 +42,9 @@ export class PlayerListComponent implements OnInit {
         this.showImage =!this.showImage;
     }
     ngOnInit():void{
-        console.log('In onInit');
+        this.players = this._playerService.getPlayers();
+        this.filteredPlayers=this.players;
+
     }
 
 
