@@ -1,0 +1,29 @@
+[
+    {
+        "playerName": "Leo Messi",
+        "playerNo":10,
+        "playerPos":"Right wing",
+        "playerVal":5000000,
+        "playerRating":5,
+        "contractDate":"june 2022",
+
+    },
+    {
+        "playerName": "Luis Suarez",
+        "playerNo":9,
+        "playerPos":"Striker",
+        "playerVal":3000000,
+        "playerRating":4.7,
+        "contractDate":"june 2021",
+    },
+    {
+        "playerName": "Phil Countinho",
+        "playerNo":14,
+        "playerPos":"Mid feilder",
+        "playerVal":4000000,
+        "playerRating":4,
+        "contractDate":"june 2022",
+        
+    }
+
+]

@@ -14,8 +14,10 @@ export class PlayerListComponent implements OnInit {
     imageWidth:number=50;
     imageMargin: number=2;
     showImage: boolean=false;
+    errorMessage: string;
  
     filteredPlayers: IPlayer[];
+   // players: IPlayer[] = [];
 
 
     _listFilter:string;
@@ -42,7 +44,11 @@ export class PlayerListComponent implements OnInit {
         this.showImage =!this.showImage;
     }
     ngOnInit():void{
-        this.players = this._playerService.getPlayers();
+         this._playerService.getPlayers()
+            .subscribe(players => this.players = players,
+                error => this.errorMessage = <any>error);
+
+
         this.filteredPlayers=this.players;
 
     }
