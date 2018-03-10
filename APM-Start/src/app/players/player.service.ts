@@ -2,7 +2,7 @@ import { Injectable } from "@angular/core";
 import { HttpClient, HttpErrorResponse } from "@angular/common/http";
 import { IPlayer } from "./player";
 import { Observable } from "rxjs/Observable";
-import 'rxjs/add/operator/throw';
+import 'rxjs/add/observable/throw';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/do';
 
@@ -11,7 +11,7 @@ export class PlayerService {
 
     private _playerUrl= './api/players/players.json';
 
-    constructor(private _http: HttpClient){}
+    constructor(private _http: HttpClient){ } 
 
     getPlayers(): Observable<IPlayer[]>{
         return this._http.get<IPlayer[]>(this._playerUrl)
