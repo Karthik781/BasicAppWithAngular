@@ -17,7 +17,7 @@ export class PlayerListComponent implements OnInit {
     errorMessage: string;
  
     filteredPlayers: IPlayer[];
-   // players: IPlayer[] = [];
+    players: IPlayer[] = [];
 
 
     _listFilter:string;
@@ -28,7 +28,6 @@ export class PlayerListComponent implements OnInit {
         this._listFilter = value;
         this.filteredPlayers=this.listFilter ? this.performFilter(this.listFilter): this.players;
     }
-    players: IPlayer[] = [];
        
 
      constructor(private _playerService: PlayerService){
@@ -45,11 +44,14 @@ export class PlayerListComponent implements OnInit {
     }
     ngOnInit():void{
          this._playerService.getPlayers()
-            .subscribe(players => this.players = players,
+            .subscribe(players => {
+                this.players = players;
+                this.filteredPlayers=this.players;
+
+            },
                 error => this.errorMessage = <any>error);
 
 
-        this.filteredPlayers=this.players;
 
     }
 
