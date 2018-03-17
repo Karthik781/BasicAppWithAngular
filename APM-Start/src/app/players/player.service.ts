@@ -16,7 +16,7 @@ export class PlayerService {
     getPlayers(): Observable<IPlayer[]>{
         return this._http.get<IPlayer[]>(this._playerUrl)
        .do(data => console.log('ALL: '+ JSON.stringify(data)))
-        .catch(this.handleError);
+     .catch(this.handleError);
     
     }
 
